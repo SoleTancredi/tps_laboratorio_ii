@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tancredi.Soledad.2C.TP1.", "..\Tancredi.Soledad.2C.TP1\Tancredi.Soledad.2C.TP1\Tancredi.Soledad.2C.TP1..csproj", "{062F66CE-F4C5-4233-92C1-23E887007818}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tancredi.Soledad.2C.TP1", "Tancredi.Soledad.2C.TP1\Tancredi.Soledad.2C.TP1.csproj", "{062F66CE-F4C5-4233-92C1-23E887007818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{61A5E8A2-1D67-4003-B714-B738CCBC3C52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{062F66CE-F4C5-4233-92C1-23E887007818}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{062F66CE-F4C5-4233-92C1-23E887007818}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{062F66CE-F4C5-4233-92C1-23E887007818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61A5E8A2-1D67-4003-B714-B738CCBC3C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61A5E8A2-1D67-4003-B714-B738CCBC3C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61A5E8A2-1D67-4003-B714-B738CCBC3C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61A5E8A2-1D67-4003-B714-B738CCBC3C52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

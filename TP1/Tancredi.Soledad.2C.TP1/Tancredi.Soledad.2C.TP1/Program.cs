@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 
 namespace Tancredi.Soledad._2C.TP1_
 {
@@ -6,7 +8,11 @@ namespace Tancredi.Soledad._2C.TP1_
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+  
         }
+
+
     }
+
+   
 }
