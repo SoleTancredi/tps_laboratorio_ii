@@ -36,12 +36,12 @@ namespace Entidades
         }
 
         /// <summary>
-        /// Propiedad que muestra o asigna un valor al atributo numero, de forma segura.
+        /// Propiedad que asigna un valor al atributo numero, de forma segura.
         /// </summary>
         public string Numero
         {
             get
-            { 
+            {
                 return this.numero.ToString();
             }
             set 
