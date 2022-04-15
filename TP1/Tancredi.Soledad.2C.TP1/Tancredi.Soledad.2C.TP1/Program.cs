@@ -35,9 +35,20 @@ namespace Tancredi.Soledad._2C.TP1_
             Console.WriteLine(Calculadora.Operar(op1, op3, '+'));//10
             Console.WriteLine(Calculadora.Operar(op1, op4, '/'));//double.Min
 
+            Console.WriteLine(op.BinarioDecimal("010111010"));//186
+            Console.WriteLine(op.BinarioDecimal("11.20101,101"));//valor invalido
+            Console.WriteLine(op.DecimalBinario("48"));//110000
+            Console.WriteLine(op1.DecimalBinario("1,25"));//1
+            Console.WriteLine(op.DecimalBinario(48));//110000
+            Console.WriteLine(op.DecimalBinario(1.25));//1
+            Console.WriteLine(op.DecimalBinario("-25"));//valor invalido
+            
+
+               
 
         }
 
+      
     }
 
    

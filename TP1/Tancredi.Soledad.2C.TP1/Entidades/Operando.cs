@@ -101,6 +101,52 @@ namespace Entidades
         }
 
         /// <summary>
+        /// Convertirán un número decimal a binario, en caso de ser posible.
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns>Retornará el binario en tipo string.
+        /// De lo contrario "Valor inválido"</returns>
+        public string DecimalBinario(double numero)
+        {
+            if (numero < 0)
+            {
+                return "Valor Inválido";
+            }
+
+            StringBuilder strBinario = new StringBuilder();
+            int modulo;
+
+            do
+            {
+                int resultado = (int)numero / 2;
+                modulo = (int)numero % 2;
+                numero = resultado;
+                strBinario.Insert(0, modulo);
+            }
+            while (numero > 0);
+
+            return strBinario.ToString();
+        }
+
+        /// <summary>
+        /// Convertirán un número decimal a binario, en caso de ser posible.
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns>Retornará el binario en tipo string.
+        /// De lo contrario "Valor inválido".</returns>
+        public string DecimalBinario(string numero)
+        {
+            double numeroDecimal = ValidarOperando(numero);
+
+            if(numeroDecimal == 0)
+            {
+                return "Valor inválido";
+            }
+
+            return DecimalBinario(numeroDecimal);
+        }
+
+        /// <summary>
         /// Sobrecarga del operador +, con parametros de tipo Operando.
         /// </summary>
         /// <param name="num1"></param>
