@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tancredi.Soledad.2C.TP1", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entidades", "Entidades\Entidades.csproj", "{61A5E8A2-1D67-4003-B714-B738CCBC3C52}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCalculadora", "MiCalculadora\MiCalculadora.csproj", "{EB931210-DE02-45F8-95B7-ECD7DCB3E1F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiCalculadora", "MiCalculadora\MiCalculadora.csproj", "{9486C1B0-B554-43ED-AAC7-8FA934C7C9C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{61A5E8A2-1D67-4003-B714-B738CCBC3C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61A5E8A2-1D67-4003-B714-B738CCBC3C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61A5E8A2-1D67-4003-B714-B738CCBC3C52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EB931210-DE02-45F8-95B7-ECD7DCB3E1F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EB931210-DE02-45F8-95B7-ECD7DCB3E1F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EB931210-DE02-45F8-95B7-ECD7DCB3E1F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EB931210-DE02-45F8-95B7-ECD7DCB3E1F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9486C1B0-B554-43ED-AAC7-8FA934C7C9C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9486C1B0-B554-43ED-AAC7-8FA934C7C9C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9486C1B0-B554-43ED-AAC7-8FA934C7C9C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9486C1B0-B554-43ED-AAC7-8FA934C7C9C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
