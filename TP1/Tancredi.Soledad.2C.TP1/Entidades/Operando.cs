@@ -40,10 +40,6 @@ namespace Entidades
         /// </summary>
         public string Numero
         {
-            get
-            {
-                return this.numero.ToString();
-            }
             set 
             {
                 double retornoValidador = ValidarOperando(value);
@@ -103,6 +99,79 @@ namespace Entidades
 
             return acumulaResultado.ToString(); 
         }
+
+        /// <summary>
+        /// Sobrecarga del operador +, con parametros de tipo Operando.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <returns></returns>
+        public static double operator +(Operando num1, Operando num2)
+        {
+            return num1.numero + num2.numero;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador -, con parametros de tipo Operando.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <returns></returns>
+        public static double operator -(Operando num1, Operando num2)
+        {
+            return num1.numero - num2.numero;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador /, con parametros de tipo Operando.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <returns>En caso de que el segundo parámetro sea 0, retornará el 
+        /// valor minimo del tipo double.</returns>
+        public static double operator /(Operando num1, Operando num2)
+        {
+            if(num2.numero == 0)
+            {
+                return double.MinValue;
+            }
+            return num1.numero / num2.numero;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador *, con parametros de tipo Operando.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <returns></returns>
+        public static double operator *(Operando num1, Operando num2)
+        {
+            return num1.numero * num2.numero;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador ==, con parámetros del tipo Operando.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <returns></returns>
+        public static bool operator ==(Operando num1, Operando num2)
+        {
+            return (num1.numero == num2.numero);    
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador !=, con parámetros del tipo Operando.
+        /// </summary>
+        /// <param name="num1"></param>
+        /// <param name="num2"></param>
+        /// <returns></returns>
+        public static bool operator !=(Operando num1, Operando num2)
+        {
+            return !(num1 == num2);
+        }
+
+        
 
 
 

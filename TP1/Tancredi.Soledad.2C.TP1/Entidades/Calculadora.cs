@@ -28,30 +28,21 @@ namespace Entidades
         public static double Operar(Operando num1, Operando num2, char operador)
         {
             char operador1 = ValidarOperador(operador);
-            Double.TryParse(num1.Numero, out double result1);
-            Double.TryParse(num2.Numero, out double result2);
             double resultadoFinal = 0;
 
             switch (operador1)
             {
                 case '+':
-                    resultadoFinal = result1 + result2;                
+                    resultadoFinal = num1 + num2;            
                     break;
                 case '-':
-                    resultadoFinal= result1 - result2;
+                    resultadoFinal = num1 - num2;
                     break;
                 case '/':
-                    if(result2 == 0)
-                    {
-                        resultadoFinal = double.MinValue;
-                    }
-                    else
-                    {
-                        resultadoFinal = result1 / result2;
-                    }
+                    resultadoFinal = num1 / num2;
                     break;
                 case '*':
-                    resultadoFinal= result2 * result1;
+                    resultadoFinal= num1 * num2;
                     break;
             }
             return resultadoFinal;

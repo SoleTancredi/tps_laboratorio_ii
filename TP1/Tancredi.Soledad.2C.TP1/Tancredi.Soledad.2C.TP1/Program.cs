@@ -16,10 +16,6 @@ namespace Tancredi.Soledad._2C.TP1_
             Operando op3 = new Operando();
             Operando op4 = new Operando();
 
-            op.Numero = "10300";
-
-            Console.WriteLine(op.Numero);
-
             Console.WriteLine(op.BinarioDecimal("11111111111011111110"));// deberia ret 1048318
             Console.WriteLine(op.BinarioDecimal("1115200"));// deberia ret false
             Console.WriteLine(op.BinarioDecimal("111LKDSAd"));// deberia ret false
@@ -29,7 +25,7 @@ namespace Tancredi.Soledad._2C.TP1_
             op3.Numero = "9l";
             op4.Numero = "0";
 
-            Console.WriteLine(Calculadora.Operar(op1,op2,'s')); // 12
+            Console.WriteLine(Calculadora.Operar(op1, op2, 's')); // 12
             Console.WriteLine(Calculadora.Operar(op1, op2, '.'));//12
             Console.WriteLine(Calculadora.Operar(op1, op2, '+'));//12
             Console.WriteLine(Calculadora.Operar(op1, op2, '-'));//8
@@ -38,6 +34,7 @@ namespace Tancredi.Soledad._2C.TP1_
 
             Console.WriteLine(Calculadora.Operar(op1, op3, '+'));//10
             Console.WriteLine(Calculadora.Operar(op1, op4, '/'));//double.Min
+
 
         }
 
