@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Linq;
 using Entidades;
 
@@ -11,14 +12,16 @@ namespace Tancredi.Soledad._2C.TP1_
         {
             Operando op = new Operando();
 
-            op.Numero = "25,6b5g5.3";
+            op.Numero = "10300";
 
-            Console.WriteLine($"valor del numero: {op.Numero}");
-  
+            Console.WriteLine(op.Numero);
+
+            Console.WriteLine(op.BinarioDecimal("11111111111011111110"));// deberia ret 1048318
+            Console.WriteLine(op.BinarioDecimal("1115200"));// deberia ret false
+            Console.WriteLine(op.BinarioDecimal("111LKDSAd"));// deberia ret false
+
+
         }
-
- 
-
 
     }
 

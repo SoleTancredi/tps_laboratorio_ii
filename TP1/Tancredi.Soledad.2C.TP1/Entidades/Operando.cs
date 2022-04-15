@@ -26,14 +26,13 @@ namespace Entidades
         /// De lo contrario retornará 0.</returns> 
         private double ValidarOperando(string strNumero)
         {
-            if (Double.TryParse(strNumero, out double resul) == true)
-            {       
-                return resul;
-            }
-            else
+            if(!Double.TryParse(strNumero, out double result))
             {
                 return 0;
             }
+
+            return result;
+      
         }
 
         /// <summary>
@@ -57,11 +56,59 @@ namespace Entidades
             } 
         }
 
-  
+        /// <summary>
+        /// Comprueba que la cadena de caracteres este compuesta solo por '0' o '1'
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns></returns>
+        private bool EsBinario(string binario)
+        {
+            foreach(char c in binario)
+            {
+                if(c != '0' && c != '1')
+                {
+                    return false;
+                }
+            }
 
-        
+            return true;    
+        }
 
-        
+        /// <summary>
+        /// validará que se trate de un binario
+        /// y luego convertirá ese número binario a decimal, 
+        /// en caso de ser posible.
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns> Retornará el decimal en tipo string.
+        /// Caso contrario retornará "Valor inválido".</returns>
+        public string BinarioDecimal(string binario)
+        {
+            if(!EsBinario(binario))
+            {
+                return "Valor Inválido";
+            }
+
+            int len = binario.Length;
+            double resultado;
+            double acumulaResultado = 0;
+
+            foreach (char c in binario)
+            {
+                int elementoBinario = ((byte)c) - 48;
+                resultado = elementoBinario * Math.Pow(2, len - 1);
+                acumulaResultado += resultado;
+                len--;
+            }
+
+            return acumulaResultado.ToString(); 
+        }
+
+
+
+
+
+
 
     }
 }
