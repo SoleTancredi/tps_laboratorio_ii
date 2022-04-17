@@ -44,33 +44,16 @@ namespace MiCalculadora
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            if(flagTxtNumero1 == false || flagTxtNumero2 == false || flagComboBox1 == false)
-            {
-                this.btnOperar.Enabled = false;
-            }
-            else
-            {
-               this.btnOperar.Enabled = true;
-
-            }
-
+            Operando num1 = new Operando();
+            Operando num2 = new Operando(); 
            
-            string strOperando1 = this.txtNumero1.Text;
-            string strOperando2 = this.txtNumero2.Text;
-            string strComboBox = this.comboBox1.Text;
-            
+            num1.Numero = this.txtNumero1.Text;
+            num2.Numero = this.txtNumero2.Text;
+            char.TryParse(this.comboBox1.Text, out char operador);
 
-            Operando operando1 = new Operando();
-            Operando operando2 = new Operando();
+            double resultado = Calculadora.Operar(num1, num2, operador);
 
-            operando1.Numero = strOperando1;
-            operando2.Numero = strOperando2;
-
-            double res =  Calculadora.Operar(operando1, operando2, '+');
-
-           // this.richTextBox1.Text =$"{strOperando1} {strComboBox} {strOperando2} = {res}";
-            
-          
+            this.lblResultado.Text = resultado.ToString();
 
         }
 
@@ -110,7 +93,7 @@ namespace MiCalculadora
 
         private void lstOperaciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtNumero1_TextChanged(object sender, EventArgs e)
