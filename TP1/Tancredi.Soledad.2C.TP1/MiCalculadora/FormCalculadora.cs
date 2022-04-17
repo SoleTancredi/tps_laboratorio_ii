@@ -13,9 +13,12 @@ namespace MiCalculadora
 {
     public partial class FormCalculadora : Form
     {
+        #region AtributosFlag
         private bool flagTxtNumero1 = false;
         private bool flagTxtNumero2 = false;    
         private bool flagComboBox1 = false;
+
+        #endregion
         public FormCalculadora()
         {
             
@@ -37,26 +40,36 @@ namespace MiCalculadora
             Limpiar();
             this.btnConvertirABinario.Enabled = false;
             this.btnConvertirADecimal.Enabled = false;
-            this.btnOperar.Enabled = false;
+            this.btnOperar.Enabled = false;           
+        }
 
+        private static double Operar(string numero1, string numero2, string strOperador)
+        {
+            Operando num1 = new Operando();
+            Operando num2 = new Operando();
 
+            num1.Numero = numero1;
+            num2.Numero = numero2;
+            char.TryParse(strOperador, out char operador);
+
+            double resultado = Calculadora.Operar(num1, num2, operador);
+
+            return resultado;
         }
 
         private void btnOperar_Click(object sender, EventArgs e)
         {
-            Operando num1 = new Operando();
-            Operando num2 = new Operando(); 
-           
-            num1.Numero = this.txtNumero1.Text;
-            num2.Numero = this.txtNumero2.Text;
-            char.TryParse(this.comboBox1.Text, out char operador);
+            string txtNumero1 = this.txtNumero1.Text;
+            string txtNumero2 = this.txtNumero2.Text;
+            string operador = this.comboBox1.Text;
 
-            double resultado = Calculadora.Operar(num1, num2, operador);
-
+            double resultado = Operar(txtNumero1, txtNumero2, operador);
+            
             this.lblResultado.Text = resultado.ToString();
+            this.lstOperaciones.Items.Add($" {txtNumero1} {operador} {txtNumero2} = {resultado}");  
 
             this.btnConvertirABinario.Enabled = true;
-            this.btnConvertirADecimal.Enabled = true;
+           
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -65,12 +78,11 @@ namespace MiCalculadora
             this.btnConvertirABinario.Enabled = false;
             this.btnConvertirADecimal.Enabled = false;
             this.btnOperar.Enabled = false;
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
         private void btnConvertirABinario_Click(object sender, EventArgs e)
@@ -81,13 +93,16 @@ namespace MiCalculadora
 
                 string binario = operador.DecimalBinario(lblResultado.Text);
 
-                this.lblResultado.Text = binario;   
+                this.lblResultado.Text = binario;
+
+                this.btnConvertirABinario.Enabled = false;
+                this.btnConvertirADecimal.Enabled = true;
             }
         }
 
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
-            if(lblResultado.Text != "")
+            if (lblResultado.Text != "")
             {
                 Operando operador = new Operando();
 
@@ -95,23 +110,10 @@ namespace MiCalculadora
 
                 this.lblResultado.Text = numeritoDecimal;
 
+                this.btnConvertirADecimal.Enabled = false;
+                this.btnConvertirABinario.Enabled = true;
+
             }
-
-        }
-
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lstOperaciones_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
 
         private void txtNumero1_TextChanged(object sender, EventArgs e)
@@ -120,7 +122,6 @@ namespace MiCalculadora
             {
                 flagTxtNumero1 = true;
             }
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,6 +130,7 @@ namespace MiCalculadora
             {
                 flagComboBox1 = true;
             }
+            
         }
 
         private void txtNumero2_TextChanged(object sender, EventArgs e)
@@ -138,17 +140,24 @@ namespace MiCalculadora
                 flagTxtNumero2 = true;
             }
 
-
             if(flagTxtNumero1 == true && flagComboBox1 == true && flagTxtNumero2 == true)
             {
                 this.btnOperar.Enabled = true;
             }
         }
 
-        private void FormCalculadora_FormClosed(object sender, FormClosedEventArgs e)
-        {
-          
+        private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
+        {         
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                string msjConfirmacion = "¿Está seguro de querer salir?";
 
+                DialogResult respuesta = MessageBox.Show(msjConfirmacion, "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (respuesta != DialogResult.Yes)
+                {
+                    e.Cancel = true;
+                }
+            }
         }
     }
 }

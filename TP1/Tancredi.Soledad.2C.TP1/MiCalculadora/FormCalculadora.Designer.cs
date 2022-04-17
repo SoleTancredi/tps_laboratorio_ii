@@ -113,7 +113,6 @@
             this.lblResultado.Size = new System.Drawing.Size(55, 52);
             this.lblResultado.TabIndex = 6;
             this.lblResultado.Text = "0";
-            this.lblResultado.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtNumero1
             // 
@@ -139,7 +138,6 @@
             this.lstOperaciones.Name = "lstOperaciones";
             this.lstOperaciones.Size = new System.Drawing.Size(156, 244);
             this.lstOperaciones.TabIndex = 9;
-            this.lstOperaciones.SelectedIndexChanged += new System.EventHandler(this.lstOperaciones_SelectedIndexChanged);
             // 
             // FormCalculadora
             // 
@@ -162,7 +160,7 @@
             this.Name = "FormCalculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculadora de Soledad Tancredi del curso 2°C";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCalculadora_FormClosed);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCalculadora_FormClosing);
             this.Load += new System.EventHandler(this.FormCalculadora_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
