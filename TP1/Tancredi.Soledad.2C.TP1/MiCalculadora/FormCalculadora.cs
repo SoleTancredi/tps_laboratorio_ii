@@ -137,9 +137,11 @@ namespace MiCalculadora
                 flagTxtNumero2 = true;
             }
 
+
             if(flagTxtNumero1 == true && flagComboBox1 == true && flagTxtNumero2 == true)
             {
                 this.btnOperar.Enabled = true;
+                string casa = "fasdmsa";
             }
         }
     }
