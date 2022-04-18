@@ -69,6 +69,7 @@ namespace MiCalculadora
             this.lstOperaciones.Items.Add($" {txtNumero1} {operador} {txtNumero2} = {resultado}");  
 
             this.btnConvertirABinario.Enabled = true;
+            btnConvertirABinario.BackColor = Color.AliceBlue;
            
         }
 
