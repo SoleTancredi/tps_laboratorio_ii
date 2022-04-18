@@ -72,22 +72,24 @@
             // 
             // btnConvertirABinario
             // 
+            this.btnConvertirABinario.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnConvertirABinario.Location = new System.Drawing.Point(82, 283);
             this.btnConvertirABinario.Name = "btnConvertirABinario";
             this.btnConvertirABinario.Size = new System.Drawing.Size(169, 51);
             this.btnConvertirABinario.TabIndex = 7;
             this.btnConvertirABinario.Text = "CONVERTIR A BINARIO";
-            this.btnConvertirABinario.UseVisualStyleBackColor = true;
+            this.btnConvertirABinario.UseVisualStyleBackColor = false;
             this.btnConvertirABinario.Click += new System.EventHandler(this.btnConvertirABinario_Click);
             // 
             // btnConvertirADecimal
             // 
+            this.btnConvertirADecimal.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.btnConvertirADecimal.Location = new System.Drawing.Point(300, 283);
             this.btnConvertirADecimal.Name = "btnConvertirADecimal";
             this.btnConvertirADecimal.Size = new System.Drawing.Size(169, 51);
             this.btnConvertirADecimal.TabIndex = 8;
             this.btnConvertirADecimal.Text = "CONVERTIR A DECIMAL";
-            this.btnConvertirADecimal.UseVisualStyleBackColor = true;
+            this.btnConvertirADecimal.UseVisualStyleBackColor = false;
             this.btnConvertirADecimal.Click += new System.EventHandler(this.btnConvertirADecimal_Click);
             // 
             // comboBox1
@@ -116,6 +118,7 @@
             this.lblResultado.TabIndex = 6;
             this.lblResultado.Text = "0";
             this.lblResultado.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblResultado.UseWaitCursor = true;
             // 
             // txtNumero1
             // 

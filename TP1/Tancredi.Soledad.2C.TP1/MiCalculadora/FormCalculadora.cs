@@ -19,6 +19,7 @@ namespace MiCalculadora
         private bool flagComboBox1 = false;
 
         #endregion
+
         public FormCalculadora()
         {
             
@@ -26,6 +27,9 @@ namespace MiCalculadora
 
         }
 
+        /// <summary>
+        /// Borrará los datos de los TextBox, ComboBox y Label de la pantalla.
+        /// </summary>
         private void Limpiar()
         {
             this.txtNumero1.Text = "";
@@ -35,6 +39,11 @@ namespace MiCalculadora
             this.lstOperaciones.Items.Clear();
         }
 
+        /// <summary>
+        /// Inicializa el formulario, llama al método Limpiar y deshabilita los botones de conversion y operacion.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_Load(object sender, EventArgs e)
         {
             Limpiar();
@@ -43,6 +52,13 @@ namespace MiCalculadora
             this.btnOperar.Enabled = false;           
         }
 
+        /// <summary>
+        ///  Recibirá los dos números y el operador para luego llamar al método Operar de Calculadora
+        /// </summary>
+        /// <param name="numero1"></param>
+        /// <param name="numero2"></param>
+        /// <param name="strOperador"></param>
+        /// <returns> el resultado</returns>
         private static double Operar(string numero1, string numero2, string strOperador)
         {
             Operando num1 = new Operando();
@@ -57,6 +73,12 @@ namespace MiCalculadora
             return resultado;
         }
 
+        /// <summary>
+        /// LLama al método operar, y refleja el resultado en el Label, txtResultado.
+        /// Además de dejar disponible el btn de conversion a binario.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOperar_Click(object sender, EventArgs e)
         {
             string txtNumero1 = this.txtNumero1.Text;
@@ -68,11 +90,15 @@ namespace MiCalculadora
             this.lblResultado.Text = resultado.ToString();
             this.lstOperaciones.Items.Add($" {txtNumero1} {operador} {txtNumero2} = {resultado}");  
 
-            this.btnConvertirABinario.Enabled = true;
-            btnConvertirABinario.BackColor = Color.AliceBlue;
+            this.btnConvertirABinario.Enabled = true; 
            
         }
 
+        /// <summary>
+        /// Llama al método Limpiar() y deja fuera de disponibilidad los botones de conversion y operacion.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
@@ -81,11 +107,22 @@ namespace MiCalculadora
             this.btnOperar.Enabled = false;
         }
 
+        /// <summary>
+        /// Llama al método Close() para cerrar.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Convierte a Binario un numero decimal. 
+        /// Cambia el estado de disponibilidad del btnConvertirABinario a inactivo y el de convertirADecimal activo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirABinario_Click(object sender, EventArgs e)
         {
             if(this.lblResultado.Text != "")
@@ -101,6 +138,12 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Convierte a Decimal un numero binario. 
+        /// Cambia el estado de disponibilidad del btnConvertirADecimal a inactivo y el de convertirABinario activo.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConvertirADecimal_Click(object sender, EventArgs e)
         {
             if (lblResultado.Text != "")
@@ -117,6 +160,11 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Una vez utilizado cambia el estado del flag.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumero1_TextChanged(object sender, EventArgs e)
         {
             if(txtNumero1.Text != "")
@@ -125,6 +173,11 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        /// Una vez utilizado cambia el estado del flag.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(comboBox1.Text != "")
@@ -134,6 +187,12 @@ namespace MiCalculadora
             
         }
 
+        /// <summary>
+        /// Una vez utilizado cambia el estado del flag a true. Y además deja disponible el btnOperar, si es que los flags 
+        /// anteriores, de txt y comboBox tambien están en un estado true.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtNumero2_TextChanged(object sender, EventArgs e)
         {
             if( txtNumero2.Text != "")
@@ -147,18 +206,26 @@ namespace MiCalculadora
             }
         }
 
+        /// <summary>
+        ///Se encarga de cerrar el formulario, mostrandole al usuario una pregunta para la confirmacion.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormCalculadora_FormClosing(object sender, FormClosingEventArgs e)
         {         
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason != CloseReason.UserClosing)
             {
-                string msjConfirmacion = "¿Está seguro de querer salir?";
-
-                DialogResult respuesta = MessageBox.Show(msjConfirmacion, "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (respuesta != DialogResult.Yes)
-                {
-                    e.Cancel = true;
-                }
+                return;
             }
+            
+            string msjConfirmacion = "¿Está seguro de querer salir?";
+
+            DialogResult respuesta = MessageBox.Show(msjConfirmacion, "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (respuesta != DialogResult.Yes)
+            {
+                e.Cancel = true;
+            }
+            
         }
     }
 }
